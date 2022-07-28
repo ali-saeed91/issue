@@ -1,16 +1,16 @@
-# .github/workflows/issue-on-push.yml
-on: [push]
-name: Create an issue on push
-permissions:
-  contents: read
-  issues: write 
+name: "Set Issue Label and Assignee"
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
 jobs:
-  stuff:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: JasonEtco/create-an-issue@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: Naturalclar/issue-action@v2.0.2
         with:
-            filename: .github/ISSUE_TEMPLATE.md
+          title-or-body: "both"
+          parameters: '[ {"keywords": ["bug", "error"], "labels": ["BUG"], "assignees": ["username"]}, {"keywords": ["help", "guidance"], "labels": ["help-wanted"], "assignees": ["username"]}]'
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
