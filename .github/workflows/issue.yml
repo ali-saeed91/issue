@@ -1,16 +1,20 @@
-name: "Set Issue Label and Assignee"
 on:
   issues:
-    types: [opened]
+    types:
+      - closed
   pull_request:
-    types: [opened]
+    types:
+      - closed
 
 jobs:
-  test:
+  state_event_type:
     runs-on: ubuntu-latest
     steps:
-      - uses: Naturalclar/issue-action@v2.0.2
-        with:
-          title-or-body: "both"
-          parameters: '[ {"keywords": ["bug", "error"], "labels": ["BUG"], "assignees": ["username"]}, {"keywords": ["help", "guidance"], "labels": ["help-wanted"], "assignees": ["username"]}]'
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+    - name: if_issue
+      if: github.event.issue
+      run: |
+        echo An issue was closed
+    - name: if_pr
+      if: github.event.pull_request
+      run: |
+        echo A pull request was closed
