@@ -15,7 +15,7 @@ jobs:
       - name: Output linked Issue list
         run: echo "${{ steps.links.outputs.issues }}"
       - env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MGITHUB_TOKEN }}
           #ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
           git logs --online > gitlogs
