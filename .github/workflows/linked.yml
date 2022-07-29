@@ -14,3 +14,6 @@ jobs:
 
       - name: Output linked Issue list
         run: echo "${{ steps.links.outputs.issues }}"
+        
+      - name: Update Issue Label 
+        run: gh issue edit "${{ steps.links.outputs.issues }}" --add-label "QA" 
