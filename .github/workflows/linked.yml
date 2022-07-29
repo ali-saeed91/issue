@@ -17,12 +17,13 @@ jobs:
 
       - name: Output linked Issue list
         run: echo "${{ steps.links.outputs.issues }}"
+      
       - uses: actions/checkout@v3
       - env:
           GITHUB_TOKEN: ${{ secrets.MGITHUB_TOKEN }}
           #ISSUE_URL: ${{ github.event.issue.html_url }}
-       
-      - name: Upon Merge Approval Reasign to QA with Label
+      
+      - name: Upon Merge Approval Reasign to QA with Label 
         run: |
           gh issue edit "${{ steps.links.outputs.issues }}" --remove-assignee "@me"
           gh issue reopen "${{ steps.links.outputs.issues }}"
