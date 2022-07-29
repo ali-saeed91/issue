@@ -1,4 +1,7 @@
-on: [pull_request]
+on: 
+ pull_request:
+    types:
+      - closed
 
 jobs:
   linked_issues:
@@ -20,3 +23,5 @@ jobs:
           #ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
           gh issue edit "${{ steps.links.outputs.issues }}" --add-label "QA"
+          gh issue edit "${{ steps.links.outputs.issues }}" --remove-assignee "@me"
+          gh issue edit "${{ steps.links.outputs.issues }}" --add-assignee ali-saeed91
