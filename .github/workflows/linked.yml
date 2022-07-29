@@ -22,6 +22,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MGITHUB_TOKEN }}
           #ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
-          gh issue edit "${{ steps.links.outputs.issues }}" --add-label "QA"
           gh issue edit "${{ steps.links.outputs.issues }}" --remove-assignee "@me"
+          gh issue reopen "${{ steps.links.outputs.issues }}"
+          gh issue edit "${{ steps.links.outputs.issues }}" --add-label "QA"
           gh issue edit "${{ steps.links.outputs.issues }}" --add-assignee ali-saeed91
