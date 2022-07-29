@@ -22,10 +22,9 @@ jobs:
       - env:
           GITHUB_TOKEN: ${{ secrets.MGITHUB_TOKEN }}
           #ISSUE_URL: ${{ github.event.issue.html_url }}
+          -name: Upon Merge Approval Reasign to QA with Label
       
-      - name: Upon Merge Approval Reasign to QA with Label
-        with:
-         run: |
+        run: |
           gh issue edit "${{ steps.links.outputs.issues }}" --remove-assignee "@me"
           gh issue reopen "${{ steps.links.outputs.issues }}"
           gh issue edit "${{ steps.links.outputs.issues }}" --remove-label "DevOps"
