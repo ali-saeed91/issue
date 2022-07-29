@@ -14,6 +14,8 @@ jobs:
 
       - name: Output linked Issue list
         run: echo "${{ steps.links.outputs.issues }}"
-        
+      - env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Update Issue Label 
         run: gh issue edit "${{ steps.links.outputs.issues }}" --add-label "QA" 
