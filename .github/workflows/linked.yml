@@ -16,6 +16,7 @@ jobs:
         run: echo "${{ steps.links.outputs.issues }}"
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Update Issue Label 
-        run: gh issue edit "${{ steps.links.outputs.issues }}" --add-label "QA" 
+          #ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          git logs --online > gitlogs
+          gh issue edit "${{ steps.links.outputs.issues }}" --add-label "QA"
