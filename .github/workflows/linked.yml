@@ -18,5 +18,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MGITHUB_TOKEN }}
           #ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
-          git logs --online > gitlogs
           gh issue edit "${{ steps.links.outputs.issues }}" --add-label "QA"
