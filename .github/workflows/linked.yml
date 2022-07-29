@@ -6,7 +6,7 @@ on:
 jobs:
   linked_issues:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Ready for QA
     steps:
       - name: Find Linked Issues
         id: links
@@ -22,6 +22,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MGITHUB_TOKEN }}
           #ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
+         -name: Upon Merge Approval Reasign to QA with Label
           gh issue edit "${{ steps.links.outputs.issues }}" --remove-assignee "@me"
           gh issue reopen "${{ steps.links.outputs.issues }}"
           gh issue edit "${{ steps.links.outputs.issues }}" --remove-label "bug"
