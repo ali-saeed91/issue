@@ -6,3 +6,5 @@
 <h4>"merge request closed"</h4>
 <p>"Reopen Issue"</p>
 <p>"Completed the Job1"</p>
+<p>"Reopen Issues"</p>
+<p>"Completed the Jobs2"</p>
