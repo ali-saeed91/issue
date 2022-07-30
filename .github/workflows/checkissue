@@ -7,7 +7,14 @@ jobs:
   state_event_type:
     runs-on: ubuntu-latest
     steps:
+
     - name: if_issue
       run: |
         echo An issue was closed
         echo ${{github.event.issue}}
+
+    - name: if_issue 
+      run: |
+        echo An issue was closed
+        echo github.event.issue
+
