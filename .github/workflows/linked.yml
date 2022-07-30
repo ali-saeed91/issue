@@ -5,10 +5,10 @@ on:
 
 jobs:
   linked_issues:
+   
     runs-on: ubuntu-latest
     name: Ready for QA
     steps:
-      - uses: actions/checkout@v3
       - name: Find Linked Issues
         id: links
         uses: hossainemruz/linked-issues@main
