@@ -29,3 +29,4 @@ jobs:
           gh issue edit "${{ steps.links.outputs.issues }}" --remove-label "DevOps"
           gh issue edit "${{ steps.links.outputs.issues }}" --add-label "QA"
           gh issue edit "${{ steps.links.outputs.issues }}" --add-assignee ali-saeed91
+
