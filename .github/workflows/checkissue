@@ -1,5 +1,5 @@
 on:
-  issues:
+  pull_request:
     types:
       - closed
 
@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: if_issue
-      if: github.event.issue
       run: |
         echo An issue was closed
+        echo ${{github.event.issue}}
