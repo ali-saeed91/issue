@@ -5,4 +5,4 @@
 <p>"Github Token test2"<p>
 <h4>"merge request closed"</h4>
 <p>"Reopen Issue"</p>
-<p>"Completed the Job"</p>
+<p>"Completed the Jobs"</p>
