@@ -8,13 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: if_issue
+    - name: if_pr
+      if: github.event.pull_request
       run: |
-        echo An issue was closed
-        echo ${{github.event.issue}}
-
-    - name: if_issue 
-      run: |
-        echo An issue was closed
-        echo github.event.issue
-
+        echo A pull request was closed
+        echo ${{github.event.pull_request.number}}
