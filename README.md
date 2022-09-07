@@ -1,2 +1,2 @@
-# issue close
+# PR Close
 Check if PR is closed
